@@ -1,3 +1,4 @@
+import os
 from flask import Flask, jsonify, request
 from newspaper import Article
 from date_guesser import guess_date, Accuracy
@@ -83,4 +84,5 @@ def get_article():
 
 
 if __name__ == '__main__':
-    app.run()
+    port = int(os.environ.get('PORT', 5000))
+    app.run(port=port)
